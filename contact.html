@@ -145,16 +145,96 @@ section p {
 
 /* Contact Section */
 #contact {
-    background: #b0caf6;
-    color: #ffffff;
     padding: 60px 20px;
+    background: #f9f9f9;
+    text-align: center;
 }
-#contact a {
-    color: #fffbf6;
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #1e3c72;
+}
+
+#contact p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.contact-form {
+    flex: 1;
+    max-width: 400px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    background: #ff9800;
+    color: #fff;
     font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
-#contact a:hover {
-    color: #767474;
+
+.contact-form button:hover {
+    background: #e67e22;
+    transform: scale(1.05);
+}
+
+.contact-info {
+    flex: 1;
+    max-width: 400px;
+    text-align: left;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #1e3c72;
+}
+
+contact-info p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.map-container {
+    margin-top: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer */
@@ -185,7 +265,7 @@ footer a:hover {
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="menu-bar">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -198,15 +278,25 @@ footer a:hover {
 
     <main>
 
-        <section id="showcase">
+
+        <section id="contact">
             <h2>Contact Me</h2>
-            <p>Email: <a href="mailto:sc.maequeen.maragat@cvsu.edu.ph">sc.maequeen.maragat@cvsu.edu.ph</a></p>
-            <p>GitHub: <a href="https://github.com/ooowwsy" target="_blank">github.com/ooowwsy</a></p>
+            <p>If you have any questions or would like to work together, feel free to send me a message!</p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p><strong>Email:</strong> <a href="mailto:sc.maequeen.maragat@cvsu.edu.ph">sc.maequeen.maragat@cvsu.edu.ph</a></p>
+                    <p><strong>Phone:</strong> <a href="tel:+639265357802">+63 9265357802</a></p>
+                    <p><strong>Facebook:</strong> <a href="https://www.facebook.com/mae.queen.maragat.2024/">Mae Queen Maragat</a> </p>
+                </div>
+                
+                </form>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 My Web Portfolio | Designed with ❤️ by [Mae Queen Maragat.]</p>
+        <p>&copy; 2025 My Web Portfolio | MAE QUEEN O. MARAGAT BSIT 3B </p>
     </footer>
 </body>
 </html>

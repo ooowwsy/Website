@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizzes</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="path/to/lightbox.css" rel="stylesheet">
     <style>
         /* General Styles */
  body {
@@ -131,6 +132,7 @@ section p {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    border-radius: 5px;
 }
 .card h3 {
     font-size: 1.5rem;
@@ -141,6 +143,50 @@ section p {
     font-size: 1rem;
     margin: 0 15px 15px;
     color: #555;
+}
+
+/* Quiz Section Styles */
+.quiz-section {
+    margin-bottom: 40px;
+}
+
+.quiz-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #3465c1;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card h4 {
+    font-size: 1.2rem;
+    margin: 15px;
+    color: #1e3c72;
 }
 
 /* Contact Section */
@@ -181,7 +227,38 @@ footer a:hover {
         opacity: 1;
     }
 }
+
+/* Lightbox Styles */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+#lightbox.hidden {
+    display: none;
+}
+#close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
     </style>
+    <script src="path/to/lightbox.js"></script>
 </head>
 <body>
     <header>
@@ -198,31 +275,226 @@ footer a:hover {
 
     <main>
 
-        <section id="showcase">
+
+        <section id="quizzes">
             <h2>My Quizzes</h2>
-            <div class="card-container">
-                <div class="card">
-                    <img src="images/quiz1.jpg" alt="Project 1">
-                    <h3>Quiz Title 1</h3>
-                    <p>A brief description of the project goes here.</p>
-                </div>
-                <div class="card">
-                    <img src="images/quiz2.jpg" alt="Project 2">
-                    <h3>Quiz Title 2</h3>
-                    <p>A brief description of the project goes here.</p>
-                </div>
-                <div class="card">
-                    <img src="images/quiz3.jpg" alt="Project 3">
-                    <h3>Quiz Title 3</h3>
-                    <p>A brief description of the project goes here.</p>
+            <p>Explore the quizzes and activities I've completed. Click on any image to view it in full size.</p>
+
+            <!-- Pre-Test -->
+            <div class="quiz-section">
+                <h3>Pre-Test</h3>
+                <div class="card-container">
+                    <div class="card">
+                        <a href="pretest1.jpg" data-lightbox="pretest" data-title="Pre-Test 1">
+                            <img src="pretest1.jpg" alt="pretest 1">
+                        </a>
+                        <h4>Pre-Test 1</h4>
+                    </div>
+                    <div class="card">
+                        <a href="pretest2.jpg" data-lightbox="pretest" data-title="Pre-Test 2">
+                            <img src="pretest2.jpg" alt="Pre-Test 2">
+                        </a>
+                        <h4>Pre-Test 2</h4>
+                    </div>
+
+                    <div class="card">
+                        <a href="pretest3.jpg" data-lightbox="pretest" data-title="Pre-Test 3">
+                            <img src="pretest3.jpg" alt="Pre-Test 3">
+                        </a>
+                        <h4>Pre-Test 3</h4>
+                    </div>
+
+                    <div class="card">
+                        <a href="pretest4.jpg" data-lightbox="pretest" data-title="Pre-Test 4">
+                            <img src="pretest4.jpg" alt="Pre-Test 4">
+                        </a>
+                        <h4>Pre-Test 4</h4>
+                    </div>
+
+                    <div class="card">
+                        <a href="pretest5.jpg" data-lightbox="pretest" data-title="Pre-Test 5">
+                            <img src="pretest5.jpg" alt="Pre-Test 5">
+                        </a>
+                        <h4>Pre-Test 5</h4>
+                    </div>
+                    
                 </div>
             </div>
-        </section>
+
+            <!-- Post-Test -->
+            <div class="quiz-section">
+                <h3>Post-Test</h3>
+                <div class="card-container">
+                    <div class="card">
+                        <a href="quizzes/post-test/posttest1.jpg" data-lightbox="post-test" data-title="Post-Test 1">
+                            <img src="quizzes/post-test/posttest1.jpg" alt="Post-Test 1">
+                        </a>
+                        <h4>Post-Test 1</h4>
+                    </div>
+                    <div class="card">
+                        <a href="quizzes/post-test/posttest2.jpg" data-lightbox="post-test" data-title="Post-Test 2">
+                            <img src="quizzes/post-test/posttest2.jpg" alt="Post-Test 2">
+                        </a>
+                        <h4>Post-Test 2</h4>
+                    </div>
+
+                    <div class="card">
+                        <a href="quizzes/post-test/posttest2.jpg" data-lightbox="post-test" data-title="Post-Test 2">
+                            <img src="quizzes/post-test/posttest2.jpg" alt="Post-Test 2">
+                        </a>
+                        <h4>Post-Test 3</h4>
+                    </div>
+
+                    <div class="card">
+                        <a href="quizzes/post-test/posttest2.jpg" data-lightbox="post-test" data-title="Post-Test 2">
+                            <img src="quizzes/post-test/posttest2.jpg" alt="Post-Test 2">
+                        </a>
+                        <h4>Post-Test 4</h4>
+                    </div>
+
+                    <div class="card">
+                        <a href="posttest5.jpg" data-lightbox="post-test" data-title="Post-Test 5">
+                            <img src="posttest5.jpg" alt="Post-Test 5">
+                        </a>
+                        <h4>Post-Test 5</h4>
+                    </div>
+                </div>
+             </div>
+
+            <!-- Long Quiz -->
+            <div class="quiz-section">
+                <h3>Long Quiz</h3>
+                <div class="card-container">
+                    <div class="card">
+                        <a href="longquiz1.jpg" data-lightbox="longquiz" data-title="longquiz">
+                            <img src="longquiz1.jpg" alt="longquiz">
+                        </a>
+                        <h4>Long Quiz 1</h4>
+                    </div>
+                </div>
+
+            <!-- Midterm Exam -->
+            <div class="quiz-section">
+                <h3>Midterm Exam</h3>
+                <div class="card-container">
+                    <div class="card">
+                        <a href="midterm.jpg" data-lightbox="midterm" data-title="midterm">
+                            <img src="midterm.jpg" alt="midterm">
+                        </a>
+                        <h4>Midterm Exam</h4>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               
+
+        <div id="lightbox" class="hidden">
+            <span id="close">&times;</span>
+            <img id="lightbox-img" src="" alt="Lightbox Image">
+        </div>
 
     </main>
 
     <footer>
-        <p>&copy; 2025 My Web Portfolio | MAE QUEEN O. MARAGAT</p>
+        <p>&copy; 2025 My Web Portfolio | MAE QUEEN O. MARAGAT BSIT 3B</p>
     </footer>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.getElementById('close');
+
+        document.querySelectorAll('.card a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const imgSrc = link.getAttribute('href');
+                lightboxImg.src = imgSrc;
+                lightbox.classList.remove('hidden');
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.classList.add('hidden');
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                lightbox.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 </html>

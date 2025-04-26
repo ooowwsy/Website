@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Portfolio</title>
+    <title>Home</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* General Styles */
@@ -13,6 +13,9 @@
     padding: 0;
     background: linear-gradient(to bottom, #a7a7ff, hsl(290, 100%, 90%));
     color: #333;
+    scroll-behavior: smooth;
+}
+html {
     scroll-behavior: smooth;
 }
 a {
@@ -54,6 +57,64 @@ nav ul li a {
 }
 nav ul li a:hover {
     background: #ff9800;
+    transform: scale(1.1);
+}
+
+/* Hero Section */
+#hero {
+    position: relative;
+    background: url('images/hero-bg.jpg') no-repeat center center/cover;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.btn {
+    padding: 10px 20px;
+    background: #ff9800;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background: #e67e22;
     transform: scale(1.1);
 }
 
@@ -143,6 +204,63 @@ section p {
     color: #555;
 }
 
+/* Highlights Section */
+#highlights {
+    padding: 60px 20px;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+#highlights h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #1e3c72;
+}
+
+.highlight-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.highlight {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 1.5s ease-in-out;
+    animation-delay: 0.3s;
+    animation-fill-mode: both;
+}
+
+.highlight:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    background: #f0f8ff;
+}
+
+.highlight img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.highlight h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #1e3c72;
+}
+
+.highlight p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
 /* Contact Section */
 #contact {
     background: #1e3c72;
@@ -157,6 +275,40 @@ section p {
     color: #767474;
 }
 
+/* Call to Action Section */
+#cta {
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 40px;
+}
+
+#cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#cta p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+#cta .btn {
+    padding: 12px 25px;
+    background: #ff9800;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#cta .btn:hover {
+    background: #e67e22;
+    transform: scale(1.1);
+}
+
 /* Footer */
 footer {
     background: #111;
@@ -165,9 +317,13 @@ footer {
     padding: 1rem 0;
     font-size: 0.9rem;
 }
+
 footer a {
     color: #ff9800;
+    text-decoration: none;
+    margin: 0 5px;
 }
+
 footer a:hover {
     color: #e67e22;
 }
@@ -176,9 +332,11 @@ footer a:hover {
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
     </style>
@@ -197,18 +355,44 @@ footer a:hover {
     </header>
 
     <main>
+    
         <section id="showcase">
             <h1>Welcome to My Web Portfolio</h1>
 
             <p>Explore my projects and quizzes.</p>
-
-
         </section>
 
+        <section id="highlights">
+            <h2>What I Do</h2>
+            <div class="highlight-container">
+                <div class="highlight">
+                    <img src="image1.jpg" alt="Projects">
+                    <h3>Projects</h3>
+                    <p>Explore my web development projects and see what I've built so far.</p>
+                    <a href="projects.html" class="btn">View Projects</a>
+                </div>
+                <div class="highlight">
+                    <img src="image2.jpg" alt="Skills">
+                    <h3>Skills</h3>
+                    <p>Learn about the skills I've acquired in web development and design.</p>
+                    <a href="about.html" class="btn">Learn More</a>
+                </div>
+                <div class="highlight">
+                    <img src="image3.png" alt="Contact">
+                    <h3>Contact</h3>
+                    <p>Get in touch with me for collaborations or inquiries.</p>
+                    <a href="contact.html" class="btn">Contact Me</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 My Web Portfolio | MAE QUEEN O. MARAGAT</p>
+        <p>&copy; 2025 My Web Portfolio | MAE QUEEN O. MARAGAT BSIT 3B</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/mae.queen.maragat.2024/" target="_blank">Facebook</a> |
+            <a href="https://github.com/ooowwsy" target="_blank">GitHub</a>
+        </div>
     </footer>
 </body>
 </html>

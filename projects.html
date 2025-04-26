@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>Project</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="path/to/lightbox.css" rel="stylesheet">
     <style>
         /* General Styles */
  body {
@@ -131,6 +132,7 @@ section p {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    border-radius: 5px;
 }
 .card h3 {
     font-size: 1.5rem;
@@ -181,7 +183,38 @@ footer a:hover {
         opacity: 1;
     }
 }
+
+/* Lightbox Styles */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+#lightbox.hidden {
+    display: none;
+}
+#close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
     </style>
+    <script src="path/to/lightbox.js"></script>
 </head>
 <body>
     <header>
@@ -202,27 +235,49 @@ footer a:hover {
             <h2>My Projects</h2>
             <div class="card-container">
                 <div class="card">
-                    <img src="images/project1.jpg" alt="Project 1">
-                    <h3>Project Title 1</h3>
-                    <p>A brief description of the project goes here.</p>
+                    <a href="project1.jpg" data-lightbox="projects" data-title="Project 1">
+                        <img src="project1.jpg" alt="Quiz 1">
+                    </a>
+                    <h3>Project 1</h3>
                 </div>
-                <div class="card">
-                    <img src="images/project2.jpg" alt="Project 2">
-                    <h3>Project Title 2</h3>
-                    <p>A brief description of the project goes here.</p>
-                </div>
-                <div class="card">
-                    <img src="images/project3.jpg" alt="Project 3">
-                    <h3>Project Title 3</h3>
-                    <p>A brief description of the project goes here.</p>
-                </div>
+                
             </div>
         </section>
+
+        <div id="lightbox" class="hidden">
+            <span id="close">&times;</span>
+            <img id="lightbox-img" src="" alt="Lightbox Image">
+        </div>
 
     </main>
 
     <footer>
-        <p>&copy; 2025 My Web Portfolio | MAE QUEEN O. MARAGAT</p>
+        <p>&copy; 2025 My Web Portfolio | MAE QUEEN O. MARAGAT BSIT3b</p>
     </footer>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.getElementById('close');
+
+        document.querySelectorAll('.card a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const imgSrc = link.getAttribute('href');
+                lightboxImg.src = imgSrc;
+                lightbox.classList.remove('hidden');
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.classList.add('hidden');
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                lightbox.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 </html>
